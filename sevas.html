@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">ಸೇವೆಗಳು ಮತ್ತು ಪೂಜಾ ಕಾರ್ಯಕ್ರಮಗಳು</title>
+    <link rel="stylesheet" href="styles.css"> 
+    
+    <style>
+        /* Seva Page Specific Styles (General List Layouts) */
+        .seva-list, .festival-programs {
+            margin-top: 20px;
+        }
+
+        .seva-list ul, .festival-programs ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .seva-list li, .festival-programs li {
+            background-color: #f7f7f7;
+            padding: 15px;
+            border-left: 4px solid #A52A2A;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            font-size: 1.1em;
+        }
+
+        .seva-list li strong {
+            color: #8B4513;
+        }
+
+        /* --- Pooja Timings GRID Styles (Desktop & Mobile) --- */
+
+        .pooja-timings-section {
+            padding: 40px 0;
+            background-color: #f7f7f7;
+        }
+
+        .timing-grid-container {
+            max-width: 1000px;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Base Grid Layout (Desktop View) */
+        .timing-header, .timing-row {
+            display: grid;
+            /* Four defined columns */
+            grid-template-columns: 2fr 1.5fr 1.5fr 2fr; 
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Header Styling */
+        .timing-header {
+            background-color: #A52A2A; /* Maroon Header */
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+        .header-cell {
+            padding: 0 5px;
+        }
+
+        /* Row Styling */
+        .timing-row {
+            background-color: white;
+            transition: background-color 0.3s;
+        }
+
+        .timing-row:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .timing-row:hover {
+            background-color: #ffecc6;
+        }
+
+        .timing-cell {
+            padding: 0 10px;
+            text-align: center;
+        }
+
+        .timing-cell strong {
+            color: #A52A2A;
+            font-weight: 700;
+        }
+
+        /* Highlight Row (Special Days) */
+        .highlight-row-bg {
+            background-color: #fff8e1 !important; /* Light Yellow Background */
+            border: 2px solid #A52A2A;
+        }
+        .highlight-row-bg .timing-cell {
+            color: #333;
+        }
+        .highlight-row-bg .highlight-seva strong {
+            color: #8B4513; /* Brown for emphasis */
+        }
+
+        /* --- POOJA TIMINGS TABLE STYLES --- */
+        .pooja-timings-section {
+            padding: 40px 0;
+            background-color: #f7f7f7;
+        }
+
+        .timing-detail {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .timing-detail strong {
+            color: #A52A2A;
+        }
+
+        .table-responsive-container {
+            /* Crucial for mobile view: Allows table to scroll horizontally if it overflows */
+            overflow-x: auto; 
+            margin: 20px auto;
+            max-width: 1000px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            min-width: 550px; /* Ensures the table is wide enough on small screens */
+            border-collapse: collapse;
+            background-color: white;
+            font-size: 1.05em;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        th {
+            background-color: #A52A2A; /* Maroon header */
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Row Styling */
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #ffecc6;
+        }
+
+        /* Highlighting Special Rows (Pradosha) */
+        .highlight-row {
+            background-color: #fff8e1 !important; /* Light Yellow Background */
+            font-weight: bold;
+        }
+        .highlight-row td {
+            color: #8B4513; /* Brown text for emphasis */
+        }
+
+        /* Highlighting Weekly Special Rows (Tuesday/Friday) */
+        .weekly-special {
+            background-color: #ffe0b2 !important; /* Slightly stronger highlight */
+            border: 2px solid #8B4513;
+        }
+        .weekly-special td {
+            color: #A52A2A; /* Maroon text */
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 600px) {
+            /* Ensure the table itself can scroll if needed, handled by .table-responsive-container */
+            .table-responsive-container {
+                border-radius: 0; /* Remove border radius on very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <h1 data-kn="ಶ್ರೀ ಜಡಲ ಮುನೇಶ್ವರ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ" data-en="Shri Jadala Muneshwara Swamy Temple">ಶ್ರೀ ಜಡಲ ಮುನೇಶ್ವರ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ</h1>
+            </div>
+            <div class="language-switcher">
+                <button onclick="setLanguage('kn')">ಕನ್ನಡ</button>
+                <button onclick="setLanguage('en')">English</button>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html" data-kn="ಮುಖಪುಟ" data-en="Home">ಮುಖಪುಟ</a></li>
+            <li><a href="about.html" data-kn="ಪರಿಚಯ" data-en="About">ಪರಿಚಯ</a></li>
+            <li><a href="sevas.html" data-kn="ಸೇವೆಗಳು" data-en="Sevas">ಸೇವೆಗಳು</a></li>
+            <li><a href="facilities.html" data-kn="ಸೌಲಭ್ಯಗಳು" data-en="Facilities">ಸೌಲಭ್ಯಗಳು</a></li>
+            <li><a href="gallery.html" data-kn="ಗ್ಯಾಲರಿ" data-en="Gallery">ಗ್ಯಾಲರಿ</a></li>
+            <li><a href="contact.html" data-kn="ಸಂಪರ್ಕ" data-en="Contact">ಸಂಪರ್ಕ</a></li>
+            <li><a href="contact.html#donation" class="donate-nav" data-kn="ದೇಣಿಗೆ" data-en="Donate">ದೇಣಿಗೆ</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="pooja" class="pooja-timings-section">
+    <div class="container">
+        <h2 data-kn="ನಿತ್ಯ ಪೂಜೆ ಮತ್ತು ದರ್ಶನ ಸಮಯ" data-en="Daily Pooja & Darshan Timings">ನಿತ್ಯ ಪೂಜೆ ಮತ್ತು ದರ್ಶನ ಸಮಯ</h2>
+        
+        <div class="timing-detail">
+            <p data-kn="ದೇವಸ್ಥಾನದ ದರ್ಶನ ಸಮಯ" data-en="Temple Darshan Hours">ದೇವಸ್ಥಾನದ ದರ್ಶನ ಸಮಯ: ಪ್ರತಿದಿನ **ಬೆಳಿಗ್ಗೆ 10:00 ರಿಂದ ರಾತ್ರಿ 7:30 ರವರೆಗೆ**</p>
+        </div>
+
+        <div class="table-responsive-container"> <table>
+                <thead>
+                    <tr>
+                        <th data-kn="ಸೇವೆ" data-en="Service">ಸೇವೆ</th>
+                        <th data-kn="ಸಮಯ" data-en="Timings">ಸಮಯ</th>
+                        <th data-kn="ದಿನ/ನೋಟ್ಸ್" data-en="Day/Notes">ದಿನ/ನೋಟ್ಸ್</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="daily-seva">
+                        <td data-kn="ದೇವಸ್ಥಾನ ದರ್ಶನ ಸಮಯ" data-en="Temple Darshan Hours">ದೇವಸ್ಥಾನ ದರ್ಶನ ಸಮಯ</td>
+                        <td data-kn="ಬೆಳಿಗ್ಗೆ 10:00 ರಿಂದ ರಾತ್ರಿ 8:00 ರವರೆಗೆ" data-en="10:00 AM to 7:30 PM">ಬೆಳಿಗ್ಗೆ 10:00 ರಿಂದ ರಾತ್ರಿ 8:00 ರವರೆಗೆ</td>
+                        <td data-kn="ಪ್ರತಿದಿನ" data-en="Daily">ಪ್ರತಿದಿನ</td>
+                    </tr>
+                    
+                    <tr class="daily-seva">
+                        <td data-kn="ನಿತ್ಯ ಪೂಜೆ ಮತ್ತು ದೀಪಾರಾಧನೆ" data-en="Daily Pooja and Deeparadhane">ನಿತ್ಯ ಪೂಜೆ ಮತ್ತು ದೀಪಾರಾಧನೆ</td>
+                        <td data-kn="ಬೆಳಿಗ್ಗೆ: 10:00 - 11:00 AM" data-en="Morning: 10:00 - 11:00 AM">ಬೆಳಿಗ್ಗೆ: **10:00 - 11:00 AM**</td>
+                        <td data-kn="ಪ್ರತಿದಿನ" data-en="Daily">ಪ್ರತಿದಿನ</td>
+                    </tr>
+                    
+                    <tr class="highlight-row weekly-special">
+                        <td data-kn="ವಾರದ ವಿಶೇಷ ಪೂಜೆ" data-en="Weekly Special Pooja">ವಾರದ ವಿಶೇಷ ಪೂಜೆ</td>
+                        <td data-kn="ವಿಶೇಷ ಅಭಿಷೇಕ ಮತ್ತು ಅಲಂಕಾರ" data-en="Special Abhisheka and Alankara">ವಿಶೇಷ ಅಭಿಷೇಕ ಮತ್ತು ಅಲಂಕಾರ</td>
+                        <td data-kn="ಪ್ರತಿ ಮಂಗಳವಾರ ಮತ್ತು ಶುಕ್ರವಾರ" data-en="Every Tuesday and Friday">**ಪ್ರತಿ ಮಂಗಳವಾರ ಮತ್ತು ಶುಕ್ರವಾರ**</td>
+                    </tr>
+                    
+                    <tr class="daily-seva">
+                        <td data-kn="ರಾತ್ರಿ ಪೂಜೆ ಮತ್ತು ನೈವೇದ್ಯ ಸಮಯ" data-en="Night Pooja and Naivedya">ರಾತ್ರಿ ಪೂಜೆ ಮತ್ತು ನೈವೇದ್ಯ ಸಮಯ</td>
+                        <td data-kn="ರಾತ್ರಿ: 7:00 - 8:00 PM" data-en="Night: 7:00 - 8:00 PM">ರಾತ್ರಿ: **7:00 - 8:00 PM**</td>
+                        <td data-kn="ಪ್ರತಿದಿನ" data-en="Daily">ಪ್ರತಿದಿನ</td>
+                    </tr>
+                    
+                    <tr class="highlight-row">
+                        <td data-kn="ಪ್ರದೋಷ ಕಾಲದ ಪೂಜೆ" data-en="Pradosha Kala Pooja">ಪ್ರದೋಷ ಕಾಲದ ಪೂಜೆ</td>
+                        <td data-kn="ಸಂಜೆ 4:00 ರಿಂದ 7:00 PM" data-en="Evening 4:00 PM to 7:00 PM">ಸಂಜೆ **4:00 ರಿಂದ 7:00 PM**</td>
+                        <td data-kn="ಪ್ರದೋಷ ದಿನದಂದು ಮಾತ್ರ" data-en="Only on Pradosha day">ಪ್ರದೋಷ ದಿನದಂದು ಮಾತ್ರ</td>
+                    </tr>
+                    
+                    <tr class="daily-seva">
+                        <td data-kn="ನಿತ್ಯ ಅಭಿಷೇಕ" data-en="Daily Abhisheka">ನಿತ್ಯ ಅಭಿಷೇಕ</td>
+                        <td data-kn="ಸಮಯದ ಬಗ್ಗೆ ದೇವಸ್ಥಾನವನ್ನು ಸಂಪರ್ಕಿಸಿ" data-en="Contact temple for timing">ಸಮಯದ ಬಗ್ಗೆ ದೇವಸ್ಥಾನವನ್ನು ಸಂಪರ್ಕಿಸಿ</td>
+                        <td data-kn="ಕೋರಿಕೆ ಮೇರೆಗೆ" data-en="Upon request">ಭಕ್ತರ **ಕೋರಿಕೆ ಮೇರೆಗೆ**</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</section>
+        
+        <section>
+            <h2 data-kn="ಸೇವೆಗಳ ಪಟ್ಟಿ" data-en="List of Sevas">ಸೇವೆಗಳ ಪಟ್ಟಿ</h2>
+            <p data-kn="ಭಕ್ತರ ಕೋರಿಕೆ ಮೇರೆಗೆ ಮತ್ತು ದೇವಸ್ಥಾನದ ಸಂಪ್ರದಾಯದಂತೆ ಪ್ರತಿದಿನ ವಿವಿಧ ಸೇವಾ ಕಾರ್ಯಕ್ರಮಗಳು ನಡೆಯುತ್ತವೆ." data-en="Various service programs are held daily according to the requests of the devotees and the temple tradition.">ಭಕ್ತರ ಕೋರಿಕೆ ಮೇರೆಗೆ ಮತ್ತು ದೇವಸ್ಥಾನದ ಸಂಪ್ರದಾಯದಂತೆ ಪ್ರತಿದಿನ ವಿವಿಧ ಸೇವಾ ಕಾರ್ಯಕ್ರಮಗಳು ನಡೆಯುತ್ತವೆ.</p>
+            <div class="seva-list">
+                <ul>
+                    <li data-kn="**ಅಭಿಷೇಕ:** ದೇವರಿಗೆ ಪಂಚಾಮೃತ ಅಭಿಷೇಕ." data-en="**Abhisheka:** Panchamrita Abhisheka for the Deity.">**ಅಭಿಷೇಕ:** ದೇವರಿಗೆ ಪಂಚಾಮೃತ ಅಭಿಷೇಕ.</li>
+                    <li data-kn="**ಅಲಂಕಾರ:** ದೇವರ ವಿಗ್ರಹಕ್ಕೆ ವಿಶೇಷ ಅಲಂಕಾರ." data-en="**Alankara:** Special decoration of the Deity's idol.">**ಅಲಂಕಾರ:** ದೇವರ ವಿಗ್ರಹಕ್ಕೆ ವಿಶೇಷ ಅಲಂಕಾರ.</li>
+                    <li data-kn="**ಮಂಗಳಾರತಿ:** ಸಂಜೆ ದೇವರಿಗೆ ಮಂಗಳಾರತಿ." data-en="**Mangalarathi:** Evening offering of Mangalarathi to the Deity.">**ಮಂಗಳಾರತಿ:** ಸಂಜೆ ದೇವರಿಗೆ ಮಂಗಳಾರತಿ.</li>
+                    <li data-kn="**ಅರ್ಚನೆ/ನಾಮಗೋಷ್ಠಿ:** ಭಕ್ತರ ಹೆಸರಿನಲ್ಲಿ ಅರ್ಚನೆ ಮತ್ತು ನಾಮ ಸಂಕೀರ್ತನೆ." data-en="**Archana/Namagoshti:** Archana and chanting in the name of the devotees.">**ಅರ್ಚನೆ/ನಾಮಗೋಷ್ಠಿ:** ಭಕ್ತರ ಹೆಸರಿನಲ್ಲಿ ಅರ್ಚನೆ ಮತ್ತು ನಾಮ ಸಂಕೀರ್ತನೆ.</li>
+                    <li data-kn="**ಅನ್ನದಾನ:** ಪ್ರತಿದಿನ ಪ್ರಸಾದ ಮತ್ತು ಅನ್ನದಾನ ವಿತರಣೆ ಲಭ್ಯ." data-en="**Annadana:** Daily distribution of Prasada and Annadana is available.">**ಅನ್ನದಾನ:** ಪ್ರತಿದಿನ ಪ್ರಸಾದ ಮತ್ತು ಅನ್ನದಾನ ವಿತರಣೆ ಲಭ್ಯ.</li>
+                    <li data-kn="**ವಿಶೇಷ ಪೂಜೆಗಳು:** ಏಕಾದಶಿ, ಹುಣ್ಣಿಮೆ, ಅಮಾವಾಸ್ಯೆ ದಿನಗಳಲ್ಲಿ ವಿಶೇಷ ಪೂಜೆಗಳು." data-en="**Special Poojas:** Special Poojas on Ekadashi, Poornima, and Amavasya.">**ವಿಶೇಷ ಪೂಜೆಗಳು:** ಏಕಾದಶಿ, ಹುಣ್ಣಿಮೆ, ಅಮಾವಾಸ್ಯೆ ದಿನಗಳಲ್ಲಿ ವಿಶೇಷ ಪೂಜೆಗಳು.</li>
+                </ul>
+            </div>
+            <p class="cta-buttons"><a href="contact.html" data-kn="ಸೇವೆಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲು ಸಂಪರ್ಕಿಸಿ" data-en="Contact to Book Sevas">ಸೇವೆಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲು ಸಂಪರ್ಕಿಸಿ</a></p>
+        </section>
+        <section>
+            <h2 data-kn="ವಿಶೇಷ ದಿನಗಳು ಮತ್ತು ಹಬ್ಬಗಳು" data-en="Special Days and Festivals">ವಿಶೇಷ ದಿನಗಳು ಮತ್ತು ಹಬ್ಬಗಳು</h2>
+            <div class="festival-programs">
+                <p data-kn="ಪ್ರತಿ ಮಂಗಳವಾರ ಮತ್ತು ಶುಕ್ರವಾರದಂದು ದೇವಸ್ಥಾನದಲ್ಲಿ ವಿಶೇಷ ಪೂಜಾ ಕಾರ್ಯಕ್ರಮಗಳು ನಡೆಯುತ್ತವೆ. ಭಕ್ತರು ಹೆಚ್ಚಿನ ಸಂಖ್ಯೆಯಲ್ಲಿ ಪಾಲ್ಗೊಳ್ಳುತ್ತಾರೆ." data-en="Special Pooja programs are held every Tuesday and Friday at the temple, with large participation from devotees.">ಪ್ರತಿ ಮಂಗಳವಾರ ಮತ್ತು ಶುಕ್ರವಾರದಂದು ದೇವಸ್ಥಾನದಲ್ಲಿ ವಿಶೇಷ ಪೂಜಾ ಕಾರ್ಯಕ್ರಮಗಳು ನಡೆಯುತ್ತವೆ. ಭಕ್ತರು ಹೆಚ್ಚಿನ ಸಂಖ್ಯೆಯಲ್ಲಿ ಪಾಲ್ಗೊಳ್ಳುತ್ತಾರೆ.</p>
+                <ul>
+                    <li data-kn="**ಪ್ರಮುಖ ದಿನಗಳು:** ಏಕಾದಶಿ, ಹುಣ್ಣಿಮೆ, ಅಮಾವಾಸ್ಯೆ." data-en="**Key Days:** Ekadashi, Poornima (Full Moon), Amavasya (New Moon).">**ಪ್ರಮುಖ ದಿನಗಳು:** ಏಕಾದಶಿ, ಹುಣ್ಣಿಮೆ, ಅಮಾವಾಸ್ಯೆ.</li>
+                    <li data-kn="**ವಾರ್ಷಿಕ ಹಬ್ಬಗಳು:** ವಾರ್ಷಿಕ ಮಹೋತ್ಸವ (**ಸೆಪ್ಟೆಂಬರ್ 11**), ನವರಾತ್ರಿ, ಶಿವರಾತ್ರಿ, ಶ್ರಾವಣ ಮಾಸ, ವರ ಮಹಾಲಕ್ಷ್ಮಿ ಪೂಜೆ, ಯುಗಾದಿ." data-en="**Annual Festivals:** Annual Festival (September 11), Navaratri, Shivaratri, Shravana Masa, Vara Mahalakshmi Pooja, Ugadi.">**ವಾರ್ಷಿಕ ಹಬ್ಬಗಳು:** ವಾರ್ಷಿಕ ಮಹೋತ್ಸವ (**ಸೆಪ್ಟೆಂಬರ್ 11**), ನವರಾತ್ರಿ, ಶಿವರಾತ್ರಿ, ಶ್ರಾವಣ ಮಾಸ, ವರ ಮಹಾಲಕ್ಷ್ಮಿ ಪೂಜೆ, ಯುಗಾದಿ.</li>
+                    <li data-kn="**ಸಾಂಸ್ಕೃತಿಕ ಕಾರ್ಯಕ್ರಮ:** ಪ್ರತಿ ಶುಕ್ರವಾರ **ರಾತ್ರಿ ಇಡೀ ಭಜನೆ**, ಹಬ್ಬಗಳಲ್ಲಿ ಕೋಲಾಟ ಮತ್ತು ಭಜನೆ ಕಾರ್ಯಕ್ರಮಗಳು." data-en="**Cultural Programs:** All-night Bhajan every Friday, Kolata (Stick Dance) and Bhajan programs during festivals.">**ಸಾಂಸ್ಕೃತಿಕ ಕಾರ್ಯಕ್ರಮ:** ಪ್ರತಿ ಶುಕ್ರವಾರ **ರಾತ್ರಿ ಇಡೀ ಭಜನೆ**, ಹಬ್ಬಗಳಲ್ಲಿ ಕೋಲಾಟ ಮತ್ತು ಭಜನೆ ಕಾರ್ಯಕ್ರಮಗಳು.</li>
+                </ul>
+            </div>
+        </section>
+        </main>
+
+    <footer>
+        <div class="container footer-grid">
+            
+            <div class="footer-column footer-about">
+                <h3 class="footer-logo" data-kn="ಶ್ರೀ ಜಡಲ ಮುನೇಶ್ವರ ಸ್ವಾಮಿ" data-en="Sri Jadala Muneshwara Swamy">ಶ್ರೀ ಜಡಲ ಮುನೇಶ್ವರ ಸ್ವಾಮಿ</h3>
+                <p data-kn="ಧರ್ಮ, ಸತ್ಯ ಮತ್ತು ದೈವಿಕ ಸೇವೆಗೆ ಸಮರ್ಪಿತವಾದ ನಮ್ಮ ದೇವಸ್ಥಾನಕ್ಕೆ ಸ್ವಾಗತ." data-en="Dedicated to Dharma, Satya, and Divine Service.">
+                    ಧರ್ಮ, ಸತ್ಯ ಮತ್ತು ದೈವಿಕ ಸೇವೆಗೆ ಸಮರ್ಪಿತವಾದ ನಮ್ಮ ದೇವಸ್ಥಾನಕ್ಕೆ ಸ್ವಾಗತ.
+                </p>
+                <div class="quick-contact">
+                    <p data-kn="ಸಮಯ: ಪ್ರತಿದಿನ 10:00 ರಿಂದ 7:30 ರವರೆಗೆ" data-en="Hours: Daily from 10:00 AM to 7:30 PM">ಸಮಯ: ಪ್ರತಿದಿನ 10:00 ರಿಂದ 7:30 ರವರೆಗೆ</p>
+                    <p>Phone: <a href="tel:9620880055">9620880055</a></p>
+                </div>
+            </div>
+
+            <div class="footer-column footer-links">
+                <h4 data-kn="ಪ್ರಮುಖ ಪುಟಗಳು" data-en="Quick Links">ಪ್ರಮುಖ ಪುಟಗಳು</h4>
+                <ul>
+                    <li><a href="index.html" data-kn="ಮುಖಪುಟ" data-en="Home">ಮುಖಪುಟ</a></li>
+                    <li><a href="about.html" data-kn="ಪರಿಚಯ" data-en="About Us">ಪರಿಚಯ</a></li>
+                    <li><a href="sevas.html" data-kn="ಸೇವೆಗಳು" data-en="Sevas & Timings">ಸೇವೆಗಳು</a></li>
+                    <li><a href="facilities.html" data-kn="ಸೌಲಭ್ಯಗಳು" data-en="Facilities">ಸೌಲಭ್ಯಗಳು</a></li>
+                    <li><a href="gallery.html" data-kn="ಗ್ಯಾಲರಿ" data-en="Gallery">ಗ್ಯಾಲರಿ</a></li>
+                    <li><a href="contact.html" data-kn="ಸಂಪರ್ಕ" data-en="Contact">ಸಂಪರ್ಕ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column footer-contact">
+                <h4 data-kn="ಸಂಪರ್ಕ ಮತ್ತು ವಿಳಾಸ" data-en="Contact & Address">ಸಂಪರ್ಕ ಮತ್ತು ವಿಳಾಸ</h4>
+                <p>
+                    <span data-kn="ವಿಳಾಸ:" data-en="Address:">ವಿಳಾಸ:</span><br>
+                    ಮುನೇಶ್ವರ ಸ್ವಾಮಿ ಕಟ್ಟೆ S. ವೆಂಕಟಾಪುರ ಗ್ರಾಮ.
+                </p>
+                <p>
+                    <span data-kn="ಇಮೇಲ್:" data-en="Email:">ಇಮೇಲ್:</span><br>
+                    <a href="mailto:Simsdass2025@gmail.com">Simsdass2025@gmail.com</a>
+                </p>
+                <p class="donate-cta-link">
+                    <a href="contact.html#donation" data-kn="ದೇಣಿಗೆ ನೀಡಿ" data-en="Donate Now">ದೇಣಿಗೆ ನೀಡಿ</a>
+                </p>
+            </div>
+
+            <div class="footer-column footer-social">
+                <h4 data-kn="ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್" data-en="Google Maps" style="margin-top: 20px;">ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್</h4>
+                <img src="assets/map.png" alt="Google Map QR Code" class="footer-qr">
+            </div>
+            
+        </div>
+        
+        <div class="copyright-bar">
+            <div class="container">
+                <p>&copy; 2025 Sri Jadala Muneshwara Swamy Temple. <span data-kn="ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ." data-en="All Rights Reserved.">ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language Switching Logic - Must be included on EVERY page
+        const elements = document.querySelectorAll('[data-kn]');
+        let currentLang = 'kn';
+
+        function setLanguage(lang) {
+            if (lang === currentLang) return; 
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            // Update page title
+            const titleElement = document.getElementById('pageTitle');
+            if (titleElement) {
+                const titleText = document.querySelector('.logo h1').getAttribute('data-' + lang);
+                titleElement.textContent = titleText || (lang === 'en' ? 'Shri Jadala Muneshwara Swamy Temple' : 'ಶ್ರೀ ಜಡಲ ಮುನೇಶ್ವರ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ');
+            }
+
+            // Update all elements with data attributes
+            elements.forEach(element => {
+                const text = element.getAttribute('data-' + lang);
+                if (text) {
+                    element.textContent = text;
+                }
+            });
+
+            // Store the language preference in the browser
+            localStorage.setItem('templeLang', lang);
+        }
+
+        // Check for stored language preference on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedLang = localStorage.getItem('templeLang');
+            if (storedLang) {
+                setLanguage(storedLang);
+            } else {
+                setLanguage('kn'); // Default to Kannada if no preference is set
+            }
+        });
+    </script>
+</body>
+</html>

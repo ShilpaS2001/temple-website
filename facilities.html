@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">ದೇವಸ್ಥಾನದ ಸೌಲಭ್ಯಗಳು ಮತ್ತು ನಿಯಮಗಳು</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Facilities Page Specific Styles (ensuring good list layout) */
+        .facilities-grid, .rules-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .facilities-grid li, .rules-list li {
+            background-color: #f7f7f7;
+            padding: 15px;
+            border-left: 5px solid #8B4513; /* Strong brown accent */
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            font-size: 1.1em;
+        }
+
+        .facilities-grid li strong, .rules-list li strong {
+            color: #A52A2A;
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <h1 data-kn="ಶ್ರೀ ಜಡಲ ಮುನೇಶ್ವರ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ" data-en="Shri Jadala Muneshwara Swamy Temple">ಶ್ರೀ ಜಡಲ ಮುನೇಶ್ವರ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ</h1>
+            </div>
+            <div class="language-switcher">
+                <button onclick="setLanguage('kn')">ಕನ್ನಡ</button>
+                <button onclick="setLanguage('en')">English</button>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html" data-kn="ಮುಖಪುಟ" data-en="Home">ಮುಖಪುಟ</a></li>
+            <li><a href="about.html" data-kn="ಪರಿಚಯ" data-en="About">ಪರಿಚಯ</a></li>
+            <li><a href="sevas.html" data-kn="ಸೇವೆಗಳು" data-en="Sevas">ಸೇವೆಗಳು</a></li>
+            <li><a href="facilities.html" data-kn="ಸೌಲಭ್ಯಗಳು" data-en="Facilities">ಸೌಲಭ್ಯಗಳು</a></li>
+            <li><a href="gallery.html" data-kn="ಗ್ಯಾಲರಿ" data-en="Gallery">ಗ್ಯಾಲರಿ</a></li>
+            <li><a href="contact.html" data-kn="ಸಂಪರ್ಕ" data-en="Contact">ಸಂಪರ್ಕ</a></li>
+            <li><a href="contact.html#donation" class="donate-nav" data-kn="ದೇಣಿಗೆ" data-en="Donate">ದೇಣಿಗೆ</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2 data-kn="ಭಕ್ತರಿಗೆ ಸೌಲಭ್ಯಗಳು" data-en="Facilities for Devotees">ಭಕ್ತರಿಗೆ ಸೌಲಭ್ಯಗಳು</h2>
+
+        <section>
+            <h3 data-kn="ದೇವಸ್ಥಾನದ ಸೌಲಭ್ಯಗಳು" data-en="Temple Facilities">ದೇವಸ್ಥಾನದ ಸೌಲಭ್ಯಗಳು</h3>
+            <p data-kn="ದೂರದೂರುಗಳಿಂದ ಬರುವ ಭಕ್ತರಿಗಾಗಿ ದೇವಸ್ಥಾನದ ಆಡಳಿತವು ಈ ಕೆಳಗಿನ ಸೌಲಭ್ಯಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ." data-en="The temple administration provides the following facilities for devotees visiting from afar.">ದೂರದೂರುಗಳಿಂದ ಬರುವ ಭಕ್ತರಿಗಾಗಿ ದೇವಸ್ಥಾನದ ಆಡಳಿತವು ಈ ಕೆಳಗಿನ ಸೌಲಭ್ಯಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ.</p>
+            
+            <ul class="facilities-grid">
+                <li data-kn="**ಪಾರ್ಕಿಂಗ್:** ವಾಹನಗಳ ನಿಲುಗಡೆಗೆ ಸೂಕ್ತ ಸ್ಥಳ." data-en="**Parking:** Designated area for vehicle parking.">**ಪಾರ್ಕಿಂಗ್:** ವಾಹನಗಳ ನಿಲುಗಡೆಗೆ ಸೂಕ್ತ ಸ್ಥಳ.</li>
+                <li data-kn="**ಅನ್ನದಾನ/ಪ್ರಸಾದ ವಿತರಣೆ:** ಪ್ರತಿದಿನ ಲಭ್ಯವಿದೆ." data-en="**Annadana/Prasada:** Available daily.">**ಅನ್ನದಾನ/ಪ್ರಸಾದ ವಿತರಣೆ:** ಪ್ರತಿದಿನ ಲಭ್ಯವಿದೆ.</li>
+                <li data-kn="**ನೀರು ಮತ್ತು ಶೌಚಾಲಯ:** ಕುಡಿಯುವ ನೀರು ಮತ್ತು ಶೌಚಾಲಯ ವ್ಯವಸ್ಥೆ ಇದೆ." data-en="**Water and Restrooms:** Drinking water and restroom facilities are available.">**ನೀರು ಮತ್ತು ಶೌಚಾಲಯ:** ಕುಡಿಯುವ ನೀರು ಮತ್ತು ಶೌಚಾಲಯ ವ್ಯವಸ್ಥೆ ಇದೆ.</li>
+                <li data-kn="**ವಿಶ್ರಾಂತಿ ಸ್ಥಳ:** ಭಕ್ತರು ವಿಶ್ರಾಂತಿ ಪಡೆಯಲು ಮಂಟಪ ಲಭ್ಯವಿದೆ." data-en="**Resting Area:** A Mandapam (hall) is available for devotees to rest.">**ವಿಶ್ರಾಂತಿ ಸ್ಥಳ:** ಭಕ್ತರು ವಿಶ್ರಾಂತಿ ಪಡೆಯಲು ಮಂಟಪ ಲಭ್ಯವಿದೆ.</li>
+                <li data-kn="**ವಸತಿ ವ್ಯವಸ್ಥೆ:** ಸಾಮಾನ್ಯ ವಸತಿ ಸೌಲಭ್ಯ ಲಭ್ಯವಿದೆ." data-en="**Accommodation:** General accommodation facility is available.">**ವಸತಿ ವ್ಯವಸ್ಥೆ:** ಸಾಮಾನ್ಯ ವಸತಿ ಸೌಲಭ್ಯ ಲಭ್ಯವಿದೆ.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 data-kn="ದೇವಾಲಯದ ನಿಯಮಗಳು" data-en="Temple Rules">ದೇವಾಲಯದ ನಿಯಮಗಳು</h2>
+            <p data-kn="ದೇವಸ್ಥಾನದ ಆವರಣದಲ್ಲಿ ಎಲ್ಲರೂ ಪಾಲಿಸಬೇಕಾದ ಕೆಲವು ಮುಖ್ಯ ನಿಯಮಗಳು ಇಲ್ಲಿವೆ." data-en="Here are some key rules that everyone must follow on the temple premises.">ದೇವಸ್ಥಾನದ ಆವರಣದಲ್ಲಿ ಎಲ್ಲರೂ ಪಾಲಿಸಬೇಕಾದ ಕೆಲವು ಮುಖ್ಯ ನಿಯಮಗಳು ಇಲ್ಲಿವೆ.</p>
+
+            <ul class="rules-list">
+                <li data-kn="**ಶಿಸ್ತು ಮತ್ತು ಪವಿತ್ರತೆ:** ದೇವಸ್ಥಾನದ ಪಾವಿತ್ರ್ಯತೆ ಮತ್ತು ಶಿಸ್ತನ್ನು ಕಾಪಾಡಿಕೊಳ್ಳುವುದು ಕಡ್ಡಾಯ." data-en="**Discipline and Sanctity:** It is mandatory to maintain the sanctity and discipline of the temple.">**ಶಿಸ್ತು ಮತ್ತು ಪವಿತ್ರತೆ:** ದೇವಸ್ಥಾನದ ಪಾವಿತ್ರ್ಯತೆ ಮತ್ತು ಶಿಸ್ತನ್ನು ಕಾಪಾಡಿಕೊಳ್ಳುವುದು ಕಡ್ಡಾಯ.</li>
+                <li data-kn="**ಪ್ರವೇಶ ನಿರ್ಬಂಧ:** ಗರ್ಭಗುಡಿಯೊಳಗೆ ಇತರರಿಗೆ ಪ್ರವೇಶವಿರುವುದಿಲ್ಲ." data-en="**Entry Restriction:** Entry is restricted inside the Garbhagudi (Sanctum Sanctorum) for others.">**ಪ್ರವೇಶ ನಿರ್ಬಂಧ:** ಗರ್ಭಗುಡಿಯೊಳಗೆ ಇತರರಿಗೆ ಪ್ರವೇಶವಿರುವುದಿಲ್ಲ.</li>
+                <li data-kn="**ವೇಷಭೂಷಣ:** ಭಕ್ತಾದಿಗಳು ಸಾಂಪ್ರದಾಯಿಕ ಮತ್ತು ಸಭ್ಯ ವೇಷಭೂಷಣದಲ್ಲಿ ಬರುವುದು ಅಪೇಕ್ಷಣೀಯ." data-en="**Dress Code:** Devotees are requested to wear traditional and modest attire.">**ವೇಷಭೂಷಣ:** ಭಕ್ತಾದಿಗಳು ಸಾಂಪ್ರದಾಯಿಕ ಮತ್ತು ಸಭ್ಯ ವೇಷಭೂಷಣದಲ್ಲಿ ಬರುವುದು ಅಪೇಕ್ಷಣೀಯ.</li>
+                <li data-kn="**ಪಾದರಕ್ಷೆ:** ದೇವಾಲಯದ ಆವರಣದೊಳಗೆ ಪಾದರಕ್ಷೆಗಳನ್ನು ಧರಿಸುವುದನ್ನು ನಿಷೇಧಿಸಲಾಗಿದೆ." data-en="**Footwear:** Footwear is prohibited inside the temple premises.">**ಪಾದರಕ್ಷೆ:** ದೇವಾಲಯದ ಆವರಣದೊಳಗೆ ಪಾದರಕ್ಷೆಗಳನ್ನು ಧರಿಸುವುದನ್ನು ನಿಷೇಧಿಸಲಾಗಿದೆ.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            
+            <div class="footer-column footer-about">
+                <h3 class="footer-logo" data-kn="ಶ್ರೀ ಜಡಲ ಮುನೇಶ್ವರ ಸ್ವಾಮಿ" data-en="Sri Jadala Muneshwara Swamy">ಶ್ರೀ ಜಡಲ ಮುನೇಶ್ವರ ಸ್ವಾಮಿ</h3>
+                <p data-kn="ಧರ್ಮ, ಸತ್ಯ ಮತ್ತು ದೈವಿಕ ಸೇವೆಗೆ ಸಮರ್ಪಿತವಾದ ನಮ್ಮ ದೇವಸ್ಥಾನಕ್ಕೆ ಸ್ವಾಗತ." data-en="Dedicated to Dharma, Satya, and Divine Service.">
+                    ಧರ್ಮ, ಸತ್ಯ ಮತ್ತು ದೈವಿಕ ಸೇವೆಗೆ ಸಮರ್ಪಿತವಾದ ನಮ್ಮ ದೇವಸ್ಥಾನಕ್ಕೆ ಸ್ವಾಗತ.
+                </p>
+                <div class="quick-contact">
+                    <p data-kn="ಸಮಯ: ಪ್ರತಿದಿನ 10:00 ರಿಂದ" data-en="Hours: Daily from 10:00 AM">ಸಮಯ: ಪ್ರತಿದಿನ 10:00 ರಿಂದ</p>
+                    <p>Phone: <a href="tel:9620880055">9620880055</a></p>
+                </div>
+            </div>
+
+            <div class="footer-column footer-links">
+                <h4 data-kn="ಪ್ರಮುಖ ಪುಟಗಳು" data-en="Quick Links">ಪ್ರಮುಖ ಪುಟಗಳು</h4>
+                <ul>
+                    <li><a href="index.html" data-kn="ಮುಖಪುಟ" data-en="Home">ಮುಖಪುಟ</a></li>
+                    <li><a href="about.html" data-kn="ಪರಿಚಯ" data-en="About Us">ಪರಿಚಯ</a></li>
+                    <li><a href="sevas.html" data-kn="ಸೇವೆಗಳು" data-en="Sevas & Timings">ಸೇವೆಗಳು</a></li>
+                    <li><a href="facilities.html" data-kn="ಸೌಲಭ್ಯಗಳು" data-en="Facilities">ಸೌಲಭ್ಯಗಳು</a></li>
+                    <li><a href="gallery.html" data-kn="ಗ್ಯಾಲರಿ" data-en="Gallery">ಗ್ಯಾಲರಿ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column footer-contact">
+                <h4 data-kn="ಸಂಪರ್ಕ ಮತ್ತು ವಿಳಾಸ" data-en="Contact & Address">ಸಂಪರ್ಕ ಮತ್ತು ವಿಳಾಸ</h4>
+                <p>
+                    <span data-kn="ವಿಳಾಸ:" data-en="Address:">ವಿಳಾಸ:</span><br>
+                    S. Venkathapura Village, Shidlaghatta Taluk, Chikkaballapur District
+                </p>
+                <p>
+                    <span data-kn="ಇಮೇಲ್:" data-en="Email:">ಇಮೇಲ್:</span><br>
+                    <a href="mailto:Simsdass2025@gmail.com">Simsdass2025@gmail.com</a>
+                </p>
+                <p class="donate-cta-link">
+                    <a href="contact.html#donation" data-kn="ದೇಣಿಗೆ ನೀಡಿ" data-en="Donate Now">ದೇಣಿಗೆ ನೀಡಿ</a>
+                </p>
+            </div>
+
+            <div class="footer-column footer-social">
+                <h4 data-kn="ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್" data-en="Google Maps" style="margin-top: 20px;">ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್</h4>
+                <img src="assets/map.png" alt="Google Map QR Code" class="footer-qr">
+            </div>
+            
+        </div>
+        
+        <div class="copyright-bar">
+            <div class="container">
+                <p>&copy; 2025 Sri Jadala Muneshwara Swamy Temple. <span data-kn="ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ." data-en="All Rights Reserved.">ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language Switching Logic - Must be included on EVERY page
+        const elements = document.querySelectorAll('[data-kn]');
+        let currentLang = 'kn';
+
+        function setLanguage(lang) {
+            if (lang === currentLang) return; 
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            // Update page title
+            const titleElement = document.getElementById('pageTitle');
+            if (titleElement) {
+                const titleText = document.querySelector('.logo h1').getAttribute('data-' + lang);
+                titleElement.textContent = titleText || (lang === 'en' ? 'Shri Jadala Muneshwara Swamy Temple' : 'ಶ್ರೀ ಜಡಲ ಮುನೇಶ್ವರ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ');
+            }
+
+            // Update all elements with data attributes
+            elements.forEach(element => {
+                const text = element.getAttribute('data-' + lang);
+                if (text) {
+                    element.textContent = text;
+                }
+            });
+
+            // Store the language preference in the browser
+            localStorage.setItem('templeLang', lang);
+        }
+
+        // Check for stored language preference on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedLang = localStorage.getItem('templeLang');
+            if (storedLang) {
+                setLanguage(storedLang);
+            } else {
+                setLanguage('kn'); // Default to Kannada if no preference is set
+            }
+        });
+    </script>
+</body>
+</html>

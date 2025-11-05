@@ -1,0 +1,1174 @@
+/* General Styling and Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* Note: For Kannada, ensure your system/browser supports standard Kannada fonts (like Tunga, Nirmala UI, or Noto Sans Kannada) */
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Utility Classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.center-text {
+    text-align: center;
+}
+
+/* Global Elements */
+img, video, picture {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+section {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    color: #A52A2A;
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #FFD700;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+h3 {
+    color: #8B4513; /* Saddle Brown */
+    font-size: 1.5em;
+    margin-top: 0;
+}
+
+/* Card Style */
+.card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Header and Navigation */
+header {
+    background-color: #A52A2A; 
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 2.2em;
+}
+
+.language-switcher button {
+    background-color: #FFD700;
+    color: #A52A2A;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-left: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.language-switcher button:hover {
+    background-color: #FFA500;
+    transform: scale(1.05);
+}
+
+/* Main Navigation Bar */
+nav {
+    background-color: #FFD700;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #A52A2A;
+    padding: 10px 20px;
+    display: block;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #f0e68c;
+}
+
+/* Donate Button in Navigation */
+nav ul li a.donate-nav {
+    background-color: #A52A2A; 
+    color: #FFD700; 
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 8px 12px;
+    border: 1px solid #A52A2A;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a.donate-nav:hover {
+    background-color: #8B4513; 
+    color: #f0e68c; 
+}
+
+
+/* Home Page Specific Styles */
+.hero-section {
+    background: url('assets/hero-temple.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    border-radius: 10px;
+    min-height: 350px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    margin-bottom: 30px;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 15px auto 0;
+}
+
+
+/* Call to Action Buttons (General) */
+.cta-buttons {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.cta-buttons a {
+    display: inline-block;
+    background-color: #A52A2A;
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 10px;
+    transition: background-color 0.3s;
+    font-size: 1.1em;
+}
+
+.cta-buttons a:hover {
+    background-color: #8B4513;
+}
+
+/* General Button Styles (for reuse) */
+.btn, .btn-outline {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 10px 10px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-size: 1em;
+}
+
+.btn {
+    background-color: #A52A2A;
+    color: white;
+    border: 2px solid #A52A2A;
+}
+
+.btn:hover {
+    background-color: #8B4513;
+    border-color: #8B4513;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #A52A2A;
+    border: 2px solid #A52A2A;
+}
+
+.btn-outline:hover {
+    background-color: #A52A2A;
+    color: white;
+}
+
+
+/* About Page Specific Styles */
+.history-section, .deity-section {
+    padding: 25px;
+    border-bottom: 1px dashed #ccc;
+    margin-bottom: 20px;
+}
+
+.history-section:last-child {
+    border-bottom: none;
+}
+
+.deity-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.deity-details ul li {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+/* Slideshow Styling (For index.html) */
+
+.slideshow-container {
+    max-width: 900px;
+    position: relative;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.slideshow {
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.mySlides {
+    display: none;
+}
+
+.mySlides img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    vertical-align: middle;
+}
+
+.text {
+    color: #f2f2f2;
+    font-size: 1.5em;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-weight: bold;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #A52A2A;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+
+/* History and Significance Section Styles (index.html) */
+
+.history-home-section {
+    padding: 60px 0;
+    background-color: #f7f7f7;
+    border-top: 5px solid #FFD700;
+}
+
+.history-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.history-card .flex-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.history-card .text-content {
+    flex: 2;
+}
+
+.history-card h3 {
+    color: #A52A2A;
+    border-bottom: 2px dashed #FFD700;
+    padding-bottom: 5px;
+    margin-top: 25px;
+}
+
+.history-card p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.history-card p strong {
+    color: #8B4513;
+}
+
+.history-card .small {
+    font-size: 0.95em;
+    font-style: italic;
+    color: #555;
+    margin-top: 10px;
+}
+
+.seva-image-wrapper {
+    flex: 1;
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 250px;
+}
+
+.seva-image-wrapper img {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Global Contact/Donation Styles */
+
+.donation-section, .contact-location-section {
+    padding: 40px 0;
+}
+
+.donation-section {
+    background-color: #fff8e1;
+    border-bottom: 5px solid #FFD700;
+}
+
+.donation-card {
+    border-top: 5px solid #A52A2A;
+}
+
+.donation-mission {
+    font-size: 1.15em; 
+    font-weight: 600; 
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.donation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: flex-start;
+    padding-top: 20px;
+}
+
+.qr-wrapper {
+    text-align: center;
+}
+
+.qr-code-img {
+    width: 200px;
+    height: 200px;
+    border: 5px solid #A52A2A;
+    border-radius: 8px;
+    margin: 10px auto;
+    display: block;
+}
+
+.bank-details {
+    padding-left: 20px;
+    border-left: 1px dashed #ccc;
+    text-align: left;
+}
+
+.bank-details h3 {
+    margin-bottom: 10px;
+    color: #A52A2A;
+}
+
+.bank-details p strong {
+    color: #8B4513;
+}
+
+/* Contact/Location Specific Styles */
+
+.contact-location-section {
+    padding: 40px 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 30px;
+    text-align: left;
+}
+
+.contact-details h3 {
+    color: #A52A2A;
+    border-bottom: 2px solid #FFD700;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.contact-details h4 {
+    color: #8B4513;
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+.address-qr-wrapper {
+    text-align: center;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.address-qr-wrapper img {
+    width: 120px;
+    height: 120px;
+    margin: 10px auto;
+    display: block;
+}
+
+/* Pooja Timings Table Styles (sevas.html) */
+
+.pooja-timings-section {
+    padding: 40px 0;
+    background-color: #f7f7f7; 
+}
+
+.table-card {
+    padding: 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.timing-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 1em;
+}
+
+.timing-table thead tr {
+    background-color: #A52A2A;
+    color: white;
+}
+
+.timing-table th, .timing-table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+}
+
+.timing-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.timing-table tbody tr:hover {
+    background-color: #ffecc6;
+}
+
+.timing-table .highlight-row-cell {
+    background-color: #FFD700 !important;
+    color: #A52A2A;
+    font-weight: bold;
+}
+
+/* Index Page Quick CTA Bar Styles */
+
+.quick-cta-bar {
+    padding: 40px 15px;
+    text-align: center;
+    background-color: #fcf8f0;
+}
+
+.cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 900px;
+    margin: 20px auto 0;
+}
+
+.cta-card {
+    display: block;
+    padding: 30px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cta-card h3 {
+    margin: 10px 0;
+    font-size: 1.5em;
+}
+
+.cta-card p {
+    font-size: 0.95em;
+    line-height: 1.4;
+    color: #555;
+}
+
+.sevas-cta {
+    background-color: #f0f7ff;
+    border: 2px solid #6495ED;
+    color: #000;
+}
+
+.sevas-cta h3 {
+    color: #6495ED;
+}
+
+.donate-cta {
+    background-color: #fff0f0;
+    border: 2px solid #A52A2A;
+    color: #000;
+}
+
+.donate-cta h3 {
+    color: #A52A2A;
+}
+
+.cta-icon {
+    font-size: 3em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.sevas-cta .cta-icon {
+    color: #4682B4;
+}
+
+.donate-cta .cta-icon {
+    color: #D2691E;
+}
+
+
+/* Index Page Quick Info Bar Styles */
+
+.quick-info-bar {
+    padding: 40px 15px;
+    text-align: center;
+    background-color: #ffffff;
+    border-top: 1px solid #eee;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 20px auto 30px;
+}
+
+.info-card {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #FFD700;
+    text-align: left;
+}
+
+.info-card h3 {
+    margin-top: 0;
+    font-size: 1.25em;
+    color: #A52A2A;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+.info-card p a {
+    color: #8B4513;
+    text-decoration: none;
+}
+
+.info-card .small-text {
+    font-size: 0.9em;
+    font-style: italic;
+    color: #777;
+    margin-top: 15px;
+}
+
+
+/* Footer Styling */
+
+footer {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+    padding-top: 40px;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #444;
+}
+
+.footer-column h3,
+.footer-column h4 {
+    color: #FFD700;
+    border-bottom: 2px solid #555;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+.footer-logo {
+    font-size: 1.5em;
+}
+
+.footer-column p {
+    margin-bottom: 10px;
+}
+
+.footer-column a {
+    color: #a0a0a0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column a:hover {
+    color: #ffffff;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.donate-cta-link a {
+    display: inline-block;
+    background-color: #A52A2A;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.donate-cta-link a:hover {
+    background-color: #8B4513;
+    color: white;
+}
+
+
+.footer-qr {
+    width: 100px;
+    height: 100px;
+    border: 3px solid #FFD700;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Copyright Bar */
+.copyright-bar {
+    background-color: #1e1e1e;
+    padding: 15px 0;
+    color: #888;
+    font-size: 0.85em;
+}
+
+.copyright-bar .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.copyright-bar p {
+    margin: 5px 0;
+}
+
+
+
+/*==========================================================*/
+/* !!! CONSOLIDATED RESPONSIVE DESIGN (The Fix) !!!         */
+/*==========================================================*/
+
+/* --- Small Screen Adjustments (<= 600px) --- */
+@media (max-width: 600px) {
+    /* Global */
+    main {
+        padding: 0 10px;
+        margin: 10px auto;
+    }
+    section {
+        padding: 15px;
+    }
+    h2 {
+        font-size: 1.7em;
+    }
+
+    /* Header/Nav */
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 0 10px;
+    }
+    .logo h1 {
+        margin-bottom: 10px;
+        font-size: 1.8em;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        padding: 0 5px;
+    }
+    nav ul li a {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Hero */
+    .hero-section {
+        padding: 60px 10px;
+        min-height: 250px;
+    }
+    .mySlides img {
+        height: 250px;
+    }
+    .text {
+        font-size: 1em;
+    }
+
+    /* General Buttons */
+    .cta-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+    .btn, .btn-outline {
+        margin: 8px 0;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    /* Pooja Table (Card View) */
+    .timing-table thead { display: none; }
+    .timing-table, .timing-table tbody, .timing-table tr, .timing-table td {
+        display: block;
+        width: 100%;
+    }
+    .timing-table tr {
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .timing-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border: none;
+    }
+    .timing-table td::before {
+        content: attr(data-en) " / " attr(data-kn);
+        position: absolute;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+        color: #8B4513;
+        text-align: left;
+    }
+
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-column {
+        text-align: center;
+        border-bottom: 1px dashed #555;
+        padding-bottom: 20px;
+    }
+    .copyright-bar .container {
+        flex-direction: column;
+    }
+}
+
+
+/* --- Tablet/Mid-Screen Adjustments (<= 900px, but > 600px) --- */
+@media (max-width: 900px) {
+    /* History Section */
+    .history-card .flex-container {
+        flex-direction: column;
+    }
+    .seva-image-wrapper {
+        order: -1;
+        margin-bottom: 20px;
+        min-width: unset; /* Remove minimum width constraint */
+    }
+}
+
+
+/* --- Grid Stacking Fixes (<= 768px, targeting grids) --- */
+@media (max-width: 768px) {
+    
+    /* Donation Section */
+    .donation-grid {
+        grid-template-columns: 1fr; 
+    }
+    .bank-details {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px dashed #ccc;
+        padding-top: 20px;
+        margin-top: 20px;
+        text-align: center; 
+    }
+    .bank-details p {
+        text-align: left;
+        max-width: 300px;
+        margin: 0 auto 10px;
+    }
+    .qr-wrapper img {
+        margin-bottom: 20px;
+    }
+
+    /* Quick CTA Bar (index.html) */
+    .cta-grid {
+        grid-template-columns: 1fr; 
+    }
+    
+    /* Quick Info Bar (index.html) */
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* CONTACT/LOCATION (The main fix for the map section) */
+    .contact-grid {
+        grid-template-columns: 1fr; /* Switch to a single column */
+        gap: 20px;
+    }
+    .map-wrapper {
+        order: -1; /* Move map above contact details */
+    }
+    .map-wrapper iframe {
+        height: 300px !important;
+        width: 100%;
+    }
+}
+
+/* --- Key Information Cards Styling (index.html) --- */
+
+.info-cards {
+    /* Existing Grid Style */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+    padding: 0 10px;
+}
+
+.card {
+    /* Reusing base card style */
+    background-color: #fffaf0; /* Ivory */
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center; /* Center the content inside the card */
+    border-left: 5px solid #FFD700;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card h3 {
+    display: flex; /* Enables centering of icon and text */
+    justify-content: center;
+    align-items: center;
+    color: #A52A2A; /* Maroon */
+    font-size: 1.4em;
+    border-bottom: 2px solid #f0e68c;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.card h3 i {
+    font-size: 1.2em;
+    color: #FFD700; /* Gold/Accent color */
+    margin-right: 10px;
+}
+
+.card p {
+    font-size: 1.1em;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* Specific Border Colors for Visual Distinction (Optional) */
+.info-timing { border-left-color: #6495ED; /* Blue for Timings */ }
+.info-timing h3 i { color: #6495ED; }
+
+.info-special { border-left-color: #8B4513; /* Brown for Special Days */ }
+.info-special h3 i { color: #8B4513; }
+
+.info-festival { border-left-color: #A52A2A; /* Maroon for Festival */ }
+.info-festival h3 i { color: #A52A2A; }
+
+/* Responsive Adjustment */
+@media (max-width: 600px) {
+    .info-cards {
+        grid-template-columns: 1fr; /* Stack cards vertically */
+        padding: 0;
+        gap: 20px;
+    }
+}
+
+/* --- Pooja Timings GRID Styles (sevas.html) --- */
+
+.pooja-timings-section {
+    padding: 40px 0;
+    background-color: #f7f7f7;
+}
+
+.timing-grid-container {
+    padding: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Base Grid Layout (Desktop View) */
+.timing-header, .timing-row {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1.5fr 2fr; /* Four defined columns */
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Header Styling */
+.timing-header {
+    background-color: #A52A2A;
+    color: white;
+    font-weight: bold;
+}
+.header-cell {
+    padding: 0 5px;
+}
+
+/* Row Styling */
+.timing-row {
+    background-color: white;
+    transition: background-color 0.3s;
+}
+
+.timing-row:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.timing-row:hover {
+    background-color: #ffecc6;
+}
+
+.timing-cell {
+    padding: 0 5px;
+}
+
+.timing-cell strong {
+    color: #A52A2A;
+}
+
+/* Highlight Row */
+.highlight-row-bg {
+    background-color: #FFD700 !important;
+    color: #A52A2A;
+    font-weight: bold;
+}
+.highlight-row-bg .timing-cell {
+    color: #A52A2A;
+}
+
+
+/* --- CRITICAL MOBILE FIX (Stacking Grid) --- */
+@media (max-width: 700px) {
+    
+    /* 1. Hide the header on small screens */
+    .timing-header {
+        display: none;
+    }
+
+    /* 2. Force each row to stack vertically (1 column) */
+    .timing-row {
+        grid-template-columns: 1fr; /* Single column */
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        padding: 0;
+        background-color: white !important; /* Reset background for clarity */
+    }
+
+    /* Highlight color correction for mobile 'cards' */
+    .highlight-row-bg {
+        border-color: #A52A2A;
+        background-color: #fff8e1 !important;
+    }
+    
+    /* 3. Style each cell to look like a labeled card item */
+    .timing-cell {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        border-bottom: 1px dashed #eee;
+        text-align: right;
+    }
+    
+    /* 4. Use the data-label to insert the column header/label */
+    .timing-cell::before {
+        content: attr(data-label-en) " / " attr(data-label-kn);
+        font-weight: bold;
+        color: #8B4513;
+        text-align: left;
+    }
+    
+    /* Ensure the highlight text remains dark */
+    .highlight-row-bg .timing-cell {
+        color: #333;
+    }
+    .highlight-row-bg .highlight-seva strong {
+         color: #A52A2A;
+    }
+}
+
+/* --- Footer Social/Map Column Styling --- */
+
+/* Ensure the column is flexible */
+.footer-column.footer-social {
+    text-align: center; /* Center the image within the column */
+}
+
+/* Style for the QR Code/Map Image */
+.footer-qr {
+    display: block; /* Important for margin: auto to center it */
+    width: 100%; /* Default to full width of the column */
+    max-width: 150px; /* Limit the maximum size on larger screens */
+    height: auto;
+    margin: 10px auto 0 auto; /* Center it horizontally and add top margin */
+    border: 3px solid #FFD700; /* Optional: Adds a nice border */
+    border-radius: 8px; /* Optional: Rounded corners */
+}
+
+/* Mobile Adjustments (If needed, although max-width handles most of it) */
+@media (max-width: 600px) {
+    .footer-qr {
+        max-width: 120px; /* Slightly smaller on very small screens */
+    }
+}

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">ಸಂಪರ್ಕ, ಸ್ಥಳ ಮತ್ತು ದೇಣಿಗೆ</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Contact Page Specific Styles */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-info, .bank-details, .direction-info {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-info ul, .direction-info ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-info li, .direction-info li {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            border-bottom: 1px dotted #ccc;
+            padding-bottom: 10px;
+        }
+
+        .contact-info strong, .direction-info strong {
+            color: #A52A2A;
+            display: inline-block;
+            min-width: 100px;
+        }
+
+        /* Donation Section */
+        .donation-section {
+            background-color: #fffaf0; /* Light Yellow/Ivory for emphasis */
+            border: 2px solid #FFD700;
+        }
+
+        .bank-details p {
+            font-size: 1.1em;
+            margin: 8px 0;
+        }
+
+        .bank-details strong {
+            color: #8B4513;
+        }
+
+        .qr-code {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .qr-code img {
+            max-width: 150px;
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+
+        /* Map Styling (Placeholder) */
+        .map-container {
+            height: 400px;
+            background-color: #e0e0e0;
+            margin-top: 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-weight: bold;
+        }
+
+            /* --- FIX: Contact/Location Section Responsiveness --- */
+
+    @media (max-width: 768px) {
+        
+        /* 1. Force the grid to stack vertically */
+        .contact-grid {
+            grid-template-columns: 1fr; /* Switch to a single column */
+            gap: 20px;
+        }
+        
+        /* 2. Move the map section above the text details for better flow */
+        .map-wrapper {
+            order: -1; 
+        }
+        
+        /* 3. Ensure the map iframe is visible and has a minimum height */
+        .map-wrapper iframe {
+            height: 300px !important; /* Forces the map to be 300px tall */
+            width: 100%;
+        }
+        
+        /* 4. Center QR details, as the text side now occupies full width */
+        .contact-details {
+            text-align: center;
+        }
+
+        /* 5. Left-aligning content within the centered container for readability */
+        .contact-details h3, 
+        .contact-details h4, 
+        .contact-details p {
+            text-align: left;
+        }
+
+        /* 6. Ensure the address-qr-wrapper is centered */
+        .address-qr-wrapper {
+            max-width: 300px; /* Limit width of the QR box */
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <h1 data-kn="ಶ್ರೀ ಜಡಲ ಮುನೇಶ್ವರ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ" data-en="Shri Jadala Muneshwara Swamy Temple">ಶ್ರೀ ಜಡಲ ಮುನೇಶ್ವರ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ</h1>
+            </div>
+            <div class="language-switcher">
+                <button onclick="setLanguage('kn')">ಕನ್ನಡ</button>
+                <button onclick="setLanguage('en')">English</button>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html" data-kn="ಮುಖಪುಟ" data-en="Home">ಮುಖಪುಟ</a></li>
+            <li><a href="about.html" data-kn="ಪರಿಚಯ" data-en="About">ಪರಿಚಯ</a></li>
+            <li><a href="sevas.html" data-kn="ಸೇವೆಗಳು" data-en="Sevas">ಸೇವೆಗಳು</a></li>
+            <li><a href="facilities.html" data-kn="ಸೌಲಭ್ಯಗಳು" data-en="Facilities">ಸೌಲಭ್ಯಗಳು</a></li>
+            <li><a href="gallery.html" data-kn="ಗ್ಯಾಲರಿ" data-en="Gallery">ಗ್ಯಾಲರಿ</a></li>
+            <li><a href="contact.html" data-kn="ಸಂಪರ್ಕ" data-en="Contact">ಸಂಪರ್ಕ</a></li>
+            <li><a href="contact.html#donation" class="donate-nav" data-kn="ದೇಣಿಗೆ" data-en="Donate">ದೇಣಿಗೆ</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        
+        <section id="donation" class="donation-section">
+            <div class="container center-text">
+                <h2 data-kn="ನಮ್ಮ ಕಾರ್ಯಕ್ಕೆ ಬೆಂಬಲಿಸಿ - ದೇಣಿಗೆ" data-en="Support Our Mission - Donate">ನಮ್ಮ ಕಾರ್ಯಕ್ಕೆ ಬೆಂಬಲಿಸಿ - ದೇಣಿಗೆ</h2>
+                <div class="card donation-card">
+                    <div style="max-width: 900px; margin: 0 auto;">
+                        <p class="donation-mission" 
+                           data-kn="ನಿಮ್ಮ ದೇಣಿಗೆಯು **ನಿತ್ಯ ಪೂಜೆಗಳು, ಅನ್ನದಾನ, ಅಭಿವೃದ್ಧಿ ಚಟುವಟಿಕೆಗಳು ಮತ್ತು ದೇವಸ್ಥಾನದ ನಿರ್ವಹಣೆಗೆ** ಸಹಕಾರಿಯಾಗಿದೆ." 
+                           data-en="Your kind contribution supports the **Daily Poojas, Annadanam, development activities, and overall temple maintenance.**">
+                           ನಿಮ್ಮ ದೇಣಿಗೆಯು **ನಿತ್ಯ ಪೂಜೆಗಳು, ಅನ್ನದಾನ, ಅಭಿವೃದ್ಧಿ ಚಟುವಟಿಕೆಗಳು ಮತ್ತು ದೇವಸ್ಥಾನದ ನಿರ್ವಹಣೆಗೆ** ಸಹಕಾರಿಯಾಗಿದೆ.
+                        </p>
+                        
+                        <div class="donation-grid">
+                            <div class="qr-wrapper">
+                                <h3 data-kn="ಸ್ಕ್ಯಾನ್ ಮಾಡಿ ಪಾವತಿಸಿ (UPI)" data-en="Scan & Pay (UPI)">ಸ್ಕ್ಯಾನ್ ಮಾಡಿ ಪಾವತಿಸಿ (UPI)</h3>
+                                
+                                <img src="assets/QR-scanner.jpg" alt="Donation QR Code for UPI/Payment" class="qr-code-img" />
+                                
+                                <p class="small" 
+                                   data-kn="GPay, PhonePe, ಅಥವಾ Paytm ಬಳಸಿ ತ್ವರಿತವಾಗಿ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ." 
+                                   data-en="Quickly scan using GPay, PhonePe, or Paytm.">
+                                   GPay, PhonePe, ಅಥವಾ Paytm ಬಳಸಿ ತ್ವರಿತವಾಗಿ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ.
+                                </p>
+                            </div>
+                            
+                            <div class="bank-details">
+                                <h3 data-kn="ಬ್ಯಾಂಕ್ ದೇಣಿಗೆ ವಿವರ (NEFT/IMPS)" data-en="Bank Donation Details (NEFT/IMPS)">ಬ್ಯಾಂಕ್ ದೇಣಿಗೆ ವಿವರ (NEFT/IMPS)</h3>
+                                <p>
+                                <strong><span data-kn="ಖಾತೆ ಹೆಸರು:" data-en="Account Name:">ಖಾತೆ ಹೆಸರು:</span></strong> <span data-kn="ಶ್ರೀ ಜಡಲ ಮುನೇಶ್ವರ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ" data-en="Sri Jadala Muneshwara Swamy Temple">ಶ್ರೀ ಜಡಲ ಮುನೇಶ್ವರ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ</span><br>
+                                <strong>A/C NO:</strong> 110265320971<br>
+                                <strong>IFSC Code:</strong> CNRB00044A1<br>
+                                <strong><span data-kn="ಬ್ಯಾಂಕ್:" data-en="Bank:">ಬ್ಯಾಂಕ್:</span></strong> <span data-kn="ಕನರಾ ಬ್ಯಾಂಕ್" data-en="Canara Bank">ಕನರಾ ಬ್ಯಾಂಕ್</span>
+                                </p>
+                                <p class="small" 
+                                   data-kn="ನಿಮ್ಮ ದೇಣಿಗೆಗೆ ಔಪಚಾರಿಕ ರಶೀದಿಗಾಗಿ ದೇವಸ್ಥಾನದ ಕಛೇರಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ." 
+                                   data-en="Please contact the temple office for a formal receipt (ರಶೀದಿ) for your donation.">
+                                   ನಿಮ್ಮ ದೇಣಿಗೆಗೆ ಔಪಚಾರಿಕ ರಶೀದಿಗಾಗಿ ದೇವಸ್ಥಾನದ ಕಛೇರಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-info" class="contact-location-section">
+            <div class="container">
+                <h2 data-kn="ವಿಳಾಸ ಮತ್ತು ತಲುಪುವ ಮಾರ್ಗ" data-en="How to Reach Us & Location">ವಿಳಾಸ ಮತ್ತು ತಲುಪುವ ಮಾರ್ಗ</h2>
+                <div class="card contact-grid">
+                    <div class="contact-details">
+                        <h3 data-kn="ವಿಳಾಸ ಮತ್ತು ಸಂಪರ್ಕ ಮಾಹಿತಿ" data-en="Address & Contact Info">ವಿಳಾಸ ಮತ್ತು ಸಂಪರ್ಕ ಮಾಹಿತಿ</h3>
+                        <p><strong>Address:</strong> Muneshwara Swamy Katte, S. Venkathapura Village, Sapalike, Shidlaghatta Taluk, Chikkaballapur District</p>
+                        <p><strong>Phone:</strong> <a href="tel:9620880055">9620880055</a>, <a href="tel:9243103075">9243103075</a>, <a href="tel:9008861019">9008861019</a></p>
+                        <p><strong>Email:</strong> <a href="mailto:Simsdass2025@gmail.com">Simsdass2025@gmail.com</a></p>
+                        
+                        <h3 data-kn="ತಲುಪುವ ಮಾರ್ಗ" data-en="Getting Here (How to Reach)">ತಲುಪುವ ಮಾರ್ಗ</h3>
+                        <p data-kn="ದೇವಸ್ಥಾನವು ಎಸ್. ತಿಮ್ಮಸಂದ್ರ ಮುಖ್ಯ ರಸ್ತೆಯ ಸಮೀಪದಲ್ಲಿದೆ. **ಸಾದಲಿ ಹತ್ತಿರದ ಪ್ರಮುಖ ಬಸ್ ನಿಲ್ದಾಣ**. ಸಾದಲಿಯಿಂದ, ನೀವು ಸ್ಥಳೀಯ ಸಾರಿಗೆಯನ್ನು (ಆಟೋ-ರಿಕ್ಷಾ ಅಥವಾ ಟ್ಯಾಕ್ಸಿ) ತೆಗೆದುಕೊಂಡು ನೇರವಾಗಿ ಎಸ್. ವೆಂಕಟಾಪುರ ಗ್ರಾಮವನ್ನು ತಲುಪಬಹುದು. ಶಿಡ್ಲಘಟ್ಟದಿಂದ ದೇವಾಲಯಕ್ಕೆ ಸುಮಾರು 15-20 ನಿಮಿಷಗಳ ಪ್ರಯಾಣ." 
+                           data-en="The temple is located off the S. Timmasandra Main Road. The **nearest major bus stop is Sadali**. From Sadali, you can take local transport (auto-rickshaw or taxi) to reach S. Venkathapura village directly. The temple is approximately 15-20 minutes drive from Shidlaghatta.">
+                           ದೇವಸ್ಥಾನವು ಎಸ್. ತಿಮ್ಮಸಂದ್ರ ಮುಖ್ಯ ರಸ್ತೆಯ ಸಮೀಪದಲ್ಲಿದೆ. **ಸಾದಲಿ ಹತ್ತಿರದ ಪ್ರಮುಖ ಬಸ್ ನಿಲ್ದಾಣ**. ಸಾದಲಿಯಿಂದ, ನೀವು ಸ್ಥಳೀಯ ಸಾರಿಗೆಯನ್ನು (ಆಟೋ-ರಿಕ್ಷಾ ಅಥವಾ ಟ್ಯಾಕ್ಸಿ) ತೆಗೆದುಕೊಂಡು ನೇರವಾಗಿ ಎಸ್. ವೆಂಕಟಾಪುರ ಗ್ರಾಮವನ್ನು ತಲುಪಬಹುದು. ಶಿಡ್ಲಘಟ್ಟದಿಂದ ದೇವಾಲಯಕ್ಕೆ ಸುಮಾರು 15-20 ನಿಮಿಷಗಳ ಪ್ರಯಾಣ.
+                        </p>
+                        
+                        <div class="address-qr-wrapper">
+                             <h4 data-kn="ಗೂಗಲ್ ನಕ್ಷೆಗಳಿಗಾಗಿ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ" data-en="Scan for Google Maps Location">ಗೂಗಲ್ ನಕ್ಷೆಗಳಿಗಾಗಿ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ</h4>
+                             <img src="assets/map.png" alt="QR Code for Temple Google Map Link" />
+                             <p class="small" data-kn="ನಿಮ್ಮ ಫೋನ್‌ನಲ್ಲಿ ನೇರ ಸಂಚರಣೆ ಲಿಂಕ್." data-en="Direct link to navigation on your phone.">ನಿಮ್ಮ ಫೋನ್‌ನಲ್ಲಿ ನೇರ ಸಂಚರಣೆ ಲಿಂಕ್.</p>
+                         </div>
+                    </div>
+                    <div class="map-wrapper">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.5103990483217!2d77.90412817485354!3d13.626687486752262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb18b186ec0b599%3A0x695d46170b37960f!2sShri%20Katte%20Muneshwara%20Swamy%20Temple!5e0!3m2!1sen!2sin!4v1761391341460!5m2!1sen!2sin" width="500" height="650" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <div class="container footer-grid">
+            
+            <div class="footer-column footer-about">
+                <h3 class="footer-logo" data-kn="ಶ್ರೀ ಜಡಲ ಮುನೇಶ್ವರ ಸ್ವಾಮಿ" data-en="Sri Jadala Muneshwara Swamy">ಶ್ರೀ ಜಡಲ ಮುನೇಶ್ವರ ಸ್ವಾಮಿ</h3>
+                <p data-kn="ಧರ್ಮ, ಸತ್ಯ ಮತ್ತು ದೈವಿಕ ಸೇವೆಗೆ ಸಮರ್ಪಿತವಾದ ನಮ್ಮ ದೇವಸ್ಥಾನಕ್ಕೆ ಸ್ವಾಗತ." data-en="Dedicated to Dharma, Satya, and Divine Service.">
+                    ಧರ್ಮ, ಸತ್ಯ ಮತ್ತು ದೈವಿಕ ಸೇವೆಗೆ ಸಮರ್ಪಿತವಾದ ನಮ್ಮ ದೇವಸ್ಥಾನಕ್ಕೆ ಸ್ವಾಗತ.
+                </p>
+                <div class="quick-contact">
+                    <p data-kn="ಸಮಯ: ಪ್ರತಿದಿನ 10:00 ರಿಂದ" data-en="Hours: Daily from 10:00 AM">ಸಮಯ: ಪ್ರತಿದಿನ 10:00 ರಿಂದ</p>
+                    <p>Phone: <a href="tel:9620880055">9620880055</a></p>
+                </div>
+            </div>
+
+            <div class="footer-column footer-links">
+                <h4 data-kn="ಪ್ರಮುಖ ಪುಟಗಳು" data-en="Quick Links">ಪ್ರಮುಖ ಪುಟಗಳು</h4>
+                <ul>
+                    <li><a href="index.html" data-kn="ಮುಖಪುಟ" data-en="Home">ಮುಖಪುಟ</a></li>
+                    <li><a href="about.html" data-kn="ಪರಿಚಯ" data-en="About Us">ಪರಿಚಯ</a></li>
+                    <li><a href="sevas.html" data-kn="ಸೇವೆಗಳು" data-en="Sevas & Timings">ಸೇವೆಗಳು</a></li>
+                    <li><a href="facilities.html" data-kn="ಸೌಲಭ್ಯಗಳು" data-en="Facilities">ಸೌಲಭ್ಯಗಳು</a></li>
+                    <li><a href="gallery.html" data-kn="ಗ್ಯಾಲರಿ" data-en="Gallery">ಗ್ಯಾಲರಿ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column footer-contact">
+                <h4 data-kn="ಸಂಪರ್ಕ ಮತ್ತು ವಿಳಾಸ" data-en="Contact & Address">ಸಂಪರ್ಕ ಮತ್ತು ವಿಳಾಸ</h4>
+                <p>
+                    <span data-kn="ವಿಳಾಸ:" data-en="Address:">ವಿಳಾಸ:</span><br>
+                    S. Venkathapura Village, Shidlaghatta Taluk, Chikkaballapur District
+                </p>
+                <p>
+                    <span data-kn="ಇಮೇಲ್:" data-en="Email:">ಇಮೇಲ್:</span><br>
+                    <a href="mailto:Simsdass2025@gmail.com">Simsdass2025@gmail.com</a>
+                </p>
+                <p class="donate-cta-link">
+                    <a href="contact.html#donation" data-kn="ದೇಣಿಗೆ ನೀಡಿ" data-en="Donate Now">ದೇಣಿಗೆ ನೀಡಿ</a>
+                </p>
+            </div>
+
+            <div class="footer-column footer-social">
+                <h4 data-kn="ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್" data-en="Google Maps" style="margin-top: 20px;">ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್</h4>
+                <img src="assets/map.png" alt="Google Map QR Code" class="footer-qr">
+            </div>
+            
+        </div>
+        
+        <div class="copyright-bar">
+            <div class="container">
+                <p>&copy; 2025 Sri Jadala Muneshwara Swamy Temple. <span data-kn="ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ." data-en="All Rights Reserved.">ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language Switching Logic - Must be included on EVERY page
+        const elements = document.querySelectorAll('[data-kn]');
+        let currentLang = 'kn';
+
+        function setLanguage(lang) {
+            if (lang === currentLang) return; 
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            // Update page title
+            const titleElement = document.getElementById('pageTitle');
+            if (titleElement) {
+                const titleText = document.querySelector('.logo h1').getAttribute('data-' + lang);
+                titleElement.textContent = titleText || (lang === 'en' ? 'Shri Jadala Muneshwara Swamy Temple' : 'ಶ್ರೀ ಜಡಲ ಮುನೇಶ್ವರ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ');
+            }
+
+            // Update all elements with data attributes
+            elements.forEach(element => {
+                const text = element.getAttribute('data-' + lang);
+                if (text) {
+                    element.textContent = text;
+                }
+            });
+
+            // Store the language preference in the browser
+            localStorage.setItem('templeLang', lang);
+        }
+
+        // Check for stored language preference on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedLang = localStorage.getItem('templeLang');
+            if (storedLang) {
+                setLanguage(storedLang);
+            } else {
+                setLanguage('kn'); // Default to Kannada if no preference is set
+            }
+        });
+    </script>
+</body>
+</html>
